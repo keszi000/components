@@ -4,8 +4,6 @@ metadata:
   name: {{ include "nginx-1.fullname" . }}
   labels:
     {{- include "nginx-1.labels" . | nindent 4 }}
-    app: demoapp
-    version: 0.1
 spec:
   type: {{ .Values.service.type }}
   ports:

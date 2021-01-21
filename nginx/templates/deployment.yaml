@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "nginx-1.labels" . | nindent 4 }}
     app: nginx-app
-    version: 0.2
+    version: 0.2.1
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -20,9 +20,9 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        app: nginx-app
-        version: 0.2
         {{- include "nginx-1.selectorLabels" . | nindent 8 }}
+        app: nginx-app
+        version: 0.2.1
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

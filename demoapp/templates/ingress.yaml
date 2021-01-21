@@ -10,8 +10,6 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app: demoapp
-    version: 0.1
     {{- include "nginx-1.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:

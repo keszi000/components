@@ -4,6 +4,8 @@ metadata:
   name: {{ include "nginx-1.fullname" . }}
   labels:
     {{- include "nginx-1.labels" . | nindent 4 }}
+    app: demoapp
+    version: 0.1
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -19,6 +21,8 @@ spec:
     {{- end }}
       labels:
         {{- include "nginx-1.selectorLabels" . | nindent 8 }}
+        app: demoapp
+        version: 0.1
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
